@@ -18,6 +18,8 @@ must return 0
 cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000}); 
 */
 
+
+//Solution
 function cakes(recipe, available, numOfCakes = 0) {
     for (item in recipe) {
         if (available[item] - recipe[item] < 0 || !available[item]) {
@@ -29,4 +31,32 @@ function cakes(recipe, available, numOfCakes = 0) {
     numOfCakes++;
     return cakes(recipe, available, numOfCakes++);
 
+}
+
+
+/* 
+MUMBLING -- Kata Level 7
+
+This time no story, no theory. The examples below show you how to write function accum:
+
+Examples:
+
+accum("abcd") -> "A-Bb-Ccc-Dddd"
+accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+accum("cwAt") -> "C-Ww-Aaa-Tttt"
+The parameter of accum is a string which includes only letters from a..z and A..Z.
+*/
+
+
+//Solution
+function accum(s) {
+    let arr = s.split("")
+    let newArr = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        let str = arr[i].repeat(i + 1)
+        let all = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
+        newArr.push(all)
+    }
+    return newArr.join("-")
 }
