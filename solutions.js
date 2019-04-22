@@ -136,5 +136,9 @@ The input string will only consist of lower case letters and/or spaces.
 //Solution
 function getCount(str) {
     let m = str.match(/[aeiou]/gi)
-    return m.length
+    if (m === null) {
+        return 0
+    } else
+        return m.length
+
 }
